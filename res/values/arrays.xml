@@ -1,0 +1,16 @@
+<resources>
+    <string-array name="fibonacci_options">
+        <item>0</item>
+        <item>½</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+        <item>20</item>
+        <item>40</item>
+        <item>100</item>
+        <item>"?"</item>
+    </string-array>
+</resources>

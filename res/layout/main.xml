@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/texture_repeating"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="40dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="40dip"
+        android:background="@drawable/rounded_corner" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_gravity="top"
+                android:layout_weight="10"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginTop="5dip"
+                    android:src="@drawable/card_logo" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:onClick="onFlip"
+                    android:src="@drawable/flip_arrow" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="80"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="25dip"
+                        android:gravity="center"
+                        android:text="PLANNING POKER"
+                        android:textSize="30dip" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dip"
+                        android:drawableLeft="@drawable/step_one"
+                        android:drawablePadding="10dip"
+                        android:gravity="left"
+                        android:text="@string/step_one"
+                        android:textSize="16dip" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dip"
+                        android:drawableLeft="@drawable/step_two"
+                        android:drawablePadding="10dip"
+                        android:gravity="left"
+                        android:text="@string/step_two"
+                        android:textSize="16dip" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dip"
+                        android:drawableLeft="@drawable/step_three"
+                        android:drawablePadding="10dip"
+                        android:gravity="left"
+                        android:text="@string/step_three"
+                        android:textSize="16dip" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dip"
+                        android:drawableLeft="@drawable/step_four"
+                        android:drawablePadding="10dip"
+                        android:gravity="left"
+                        android:text="@string/step_four"
+                        android:textSize="16dip" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dip"
+                        android:layout_gravity="center"
+                        android:text="@string/deal_me_in_button"
+                        android:onClick="onFlip" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="10"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="5dip"
+                    android:layout_marginRight="5dip"
+                    android:src="@drawable/card_logo" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

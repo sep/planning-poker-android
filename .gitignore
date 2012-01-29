@@ -1,0 +1,11 @@
+
+bin
+gen
+coverage
+local.properties
+project.properties
+.metadata/*
+.settings/*
+AmazonTest/.settings/*
+*coverage.em
+/AmazonTest/*.log
