@@ -1,5 +1,6 @@
 <resources>
-    <string-array name="fibonacci_options">
+
+    <string-array name="imprecise_fibonacci_cards">
         <item>0</item>
         <item>½</item>
         <item>1</item>
@@ -13,4 +14,27 @@
         <item>100</item>
         <item>"?"</item>
     </string-array>
+    <string-array name="fibonacci_cards">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+        <item>21</item>
+        <item>34</item>
+        <item>55</item>
+        <item>89</item>
+        <item>"?"</item>
+    </string-array>
+    <string-array name="tshirt_size_cards">
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
 </resources>
