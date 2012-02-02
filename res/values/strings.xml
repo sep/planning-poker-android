@@ -8,4 +8,5 @@
     <string name="step_three">Reveal cards - low/high explain</string>
     <string name="step_four">Repeat until consensus</string>
     <string name="deal_me_in_button">Deal me in!</string>
+    <string name="settings">Settings</string>
 </resources>

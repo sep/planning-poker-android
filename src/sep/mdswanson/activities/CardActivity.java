@@ -5,13 +5,12 @@ import sep.mdswanson.application.Actions;
 import sep.mdswanson.models.decks.Deck;
 import sep.mdswanson.models.decks.DeckFactory;
 import sep.mdswanson.models.decks.DeckType;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class CardActivity extends Activity {
+public class CardActivity extends PlanningPokerActivity {
 
     private Deck mCurrentDeck;
     private DeckFactory mDeckFactory;
