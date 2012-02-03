@@ -1,7 +1,9 @@
 package sep.mdswanson.activities;
 
 import sep.mdswanson.R;
+import sep.mdswanson.application.Actions;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,7 +20,7 @@ public class PlanningPokerActivity extends Activity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                //TODO: launch settings
+                startActivity(new Intent().setAction(Actions.SETTINGS));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

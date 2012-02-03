@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Settings">
+        <ListPreference android:defaultValue="0" 
+            android:entries="@array/deck_options" 
+            android:entryValues="@array/deck_options_values" 
+            android:key="deckPreference" 
+            android:summary="@string/sequence_settings_summary" 
+            android:title="@string/sequence_settings" />
+    </PreferenceCategory>
+</PreferenceScreen>

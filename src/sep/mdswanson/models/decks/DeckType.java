@@ -1,3 +1,3 @@
 package sep.mdswanson.models.decks;
 
-public enum DeckType { IMPRECISE_FIBONACCI, FIBONACCI, TSHIRT_SIZE }
+public enum DeckType { STANDARD, FIBONACCI, TSHIRT_SIZE }

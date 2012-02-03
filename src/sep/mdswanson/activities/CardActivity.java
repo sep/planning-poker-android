@@ -4,7 +4,6 @@ import sep.mdswanson.R;
 import sep.mdswanson.application.Actions;
 import sep.mdswanson.models.decks.Deck;
 import sep.mdswanson.models.decks.DeckFactory;
-import sep.mdswanson.models.decks.DeckType;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,13 +25,20 @@ public class CardActivity extends PlanningPokerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card);
 
-        mDeckFactory = new DeckFactory(this);
-        mCurrentDeck = mDeckFactory.buildDeck(DeckType.TSHIRT_SIZE);
-
         mUpArrowView = findViewById(R.id.up_arrow);
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mDeckFactory = new DeckFactory(this);
+        mCurrentDeck = mDeckFactory.getDeck();
+        
+        mCardPosition = mCurrentDeck.size() / 2 - 1;
 
         updateArrowVisibility();
         setDisplayItem();

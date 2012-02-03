@@ -2,22 +2,32 @@ package sep.mdswanson.models.decks;
 
 import sep.mdswanson.R;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.preference.PreferenceManager;
 
 public class DeckFactory {
 
     private final Resources mResources;
+    private SharedPreferences mPreferences;
 
-    public DeckFactory(Context c) {
-        mResources = c.getResources();
+    public DeckFactory(Context context) {
+        mResources = context.getResources();
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public Deck buildDeck(DeckType type) {
+    public Deck getDeck() {
+        int deckPref = Integer.parseInt(mPreferences.getString("deckPreference", "0"));
+        DeckType selectedType = DeckType.values()[deckPref];
+        return buildDeck(selectedType);
+    }
+
+    private Deck buildDeck(DeckType type) {
         String[] cards = null;
 
         switch (type) {
-        case IMPRECISE_FIBONACCI:
-            cards = mResources.getStringArray(R.array.imprecise_fibonacci_cards);
+        case STANDARD:
+            cards = mResources.getStringArray(R.array.standard_cards);
             break;
         case FIBONACCI:
             cards = mResources.getStringArray(R.array.fibonacci_cards);
@@ -31,4 +41,5 @@ public class DeckFactory {
 
         return new Deck(cards);
     }
+
 }

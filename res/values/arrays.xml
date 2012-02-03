@@ -1,6 +1,6 @@
 <resources>
 
-    <string-array name="imprecise_fibonacci_cards">
+    <string-array name="standard_cards">
         <item>0</item>
         <item>½</item>
         <item>1</item>
@@ -35,6 +35,16 @@
         <item>L</item>
         <item>XL</item>
         <item>XXL</item>
+    </string-array>
+    <string-array name="deck_options">
+        <item>Standard</item>
+        <item>Fibonacci Numbers</item>
+        <item>T-Shirt Sizes</item>
+    </string-array>
+    <string-array name="deck_options_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>
