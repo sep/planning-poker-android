@@ -24,7 +24,8 @@
                 android:layout_height="0dip"
                 android:layout_gravity="top"
                 android:layout_weight="10"
-                android:orientation="horizontal" >
+                android:orientation="horizontal" 
+                android:onClick="onUpArrowClicked">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -50,7 +51,7 @@
 
                 <ImageView
                     android:id="@+id/up_arrow"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:gravity="top"
@@ -67,7 +68,7 @@
 
                 <ImageView
                     android:id="@+id/down_arrow"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/up_arrow"
                     android:layout_alignParentBottom="true"
@@ -81,7 +82,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="10"
-                android:orientation="horizontal" >
+                android:orientation="horizontal" 
+                android:onClick="onDownArrowClicked">
 
                 <ImageView
                     android:layout_width="wrap_content"
