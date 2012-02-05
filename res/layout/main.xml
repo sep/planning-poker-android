@@ -60,6 +60,7 @@
                         android:layout_marginBottom="25dip"
                         android:gravity="center"
                         android:text="PLANNING POKER"
+                        android:textColor="@color/title"
                         android:textSize="30dip" />
 
                     <TextView
@@ -70,6 +71,7 @@
                         android:drawablePadding="10dip"
                         android:gravity="left"
                         android:text="@string/step_one"
+                        android:textColor="@color/instruction_steps"
                         android:textSize="16dip" />
 
                     <TextView
@@ -80,6 +82,7 @@
                         android:drawablePadding="10dip"
                         android:gravity="left"
                         android:text="@string/step_two"
+                        android:textColor="@color/instruction_steps"
                         android:textSize="16dip" />
 
                     <TextView
@@ -90,6 +93,7 @@
                         android:drawablePadding="10dip"
                         android:gravity="left"
                         android:text="@string/step_three"
+                        android:textColor="@color/instruction_steps"
                         android:textSize="16dip" />
 
                     <TextView
@@ -100,15 +104,16 @@
                         android:drawablePadding="10dip"
                         android:gravity="left"
                         android:text="@string/step_four"
+                        android:textColor="@color/instruction_steps"
                         android:textSize="16dip" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dip"
                         android:layout_gravity="center"
-                        android:text="@string/deal_me_in_button"
-                        android:onClick="onFlip" />
+                        android:layout_marginTop="25dip"
+                        android:onClick="onFlip"
+                        android:text="@string/deal_me_in_button" />
                 </LinearLayout>
             </LinearLayout>
 

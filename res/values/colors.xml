@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="card_number">#40A02F</color>
+    <color name="card_border">#C4BFBB</color>
+    <color name="card_background">#EDEDED</color>
+    <color name="title">#40A02F</color>
+    <color name="instruction_steps">#361756</color>
+    
+</resources>

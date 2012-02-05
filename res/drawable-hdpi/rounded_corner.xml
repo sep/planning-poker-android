@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <stroke
+        android:width="2dip"
+        android:color="@color/card_border" />
+
     <padding
         android:bottom="7dp"
         android:left="7dp"
@@ -9,7 +13,7 @@
 
     <corners android:radius="20dp" />
 
-    <solid android:color="#EDEDED" >
+    <solid android:color="@color/card_background" >
     </solid>
 
 </shape>
