@@ -35,6 +35,7 @@
                     android:src="@drawable/card_logo" />
 
                 <ImageView
+                    android:id="@+id/flip_arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -108,6 +109,7 @@
                         android:textSize="16dip" />
 
                     <Button
+                        android:id="@+id/deal_me_in"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
