@@ -2,23 +2,25 @@ package sep.mdswanson.activities;
 
 import sep.mdswanson.R;
 import sep.mdswanson.application.Actions;
+import sep.mdswanson.application.IntentKeys;
 import sep.mdswanson.models.decks.Deck;
 import sep.mdswanson.models.decks.DeckFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
 public class CardActivity extends PlanningPokerActivity {
 
     private Deck mCurrentDeck;
-    private DeckFactory mDeckFactory;
 
     private View mUpArrowView;
     private View mDownArrowView;
     private TextView mEstimateTextView;
 
     private int mCardPosition = 0;
+    private View mDigitsContainer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,28 @@ public class CardActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
+        
+        mDigitsContainer = (View) findViewById(R.id.digit_container);
+        mDigitsContainer.setOnLongClickListener(new OnLongClickListener() {
+            
+            @Override
+            public boolean onLongClick(View arg0) {
+                Intent freezeCardIntent = new Intent().setAction(Actions.FREEZE_CARD);
+                freezeCardIntent.putExtra(IntentKeys.CARD_VALUE, getCurrentCardValue());
+                startActivity(freezeCardIntent);
+                
+                return true;
+            }
+        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        mDeckFactory = new DeckFactory(this);
-        mCurrentDeck = mDeckFactory.getDeck();
+        mCurrentDeck = new DeckFactory(this).getDeck();
         
-        mCardPosition = mCurrentDeck.size() / 2 - 1;
+        mCardPosition = mCurrentDeck.getStartingCardIndex();
 
         updateArrowVisibility();
         setDisplayItem();
@@ -78,7 +92,11 @@ public class CardActivity extends PlanningPokerActivity {
     }
 
     private void setDisplayItem() {
-        mEstimateTextView.setText(mCurrentDeck.getCard(mCardPosition));
+        mEstimateTextView.setText(getCurrentCardValue());
     }
-
+    
+    public String getCurrentCardValue() {
+        return mCurrentDeck.getCard(mCardPosition);
+        
+    }
 }

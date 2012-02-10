@@ -15,4 +15,8 @@ public class Deck {
     public String getCard(int index) {
         return mCards[index];
     }
+    
+    public int getStartingCardIndex() {
+        return Math.max(mCards.length / 2 - 1, 0);
+    }
 }
