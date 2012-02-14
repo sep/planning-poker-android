@@ -22,10 +22,14 @@ public class CardActivity extends PlanningPokerActivity {
     private int mCardPosition = 0;
     private View mDigitsContainer;
 
+    private DeckFactory mDeckFactory;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card);
+        
+        mDeckFactory = new DeckFactory(this);
 
         mUpArrowView = findViewById(R.id.up_arrow);
         mDownArrowView = findViewById(R.id.down_arrow);
@@ -50,12 +54,20 @@ public class CardActivity extends PlanningPokerActivity {
     public void onResume() {
         super.onResume();
 
-        mCurrentDeck = new DeckFactory(this).getDeck();
+        mCurrentDeck = getCurrentDeck();
         
         mCardPosition = mCurrentDeck.getStartingCardIndex();
 
         updateArrowVisibility();
         setDisplayItem();
+    }
+    
+    private Deck getCurrentDeck() {
+        return mDeckFactory.getDeck();
+    }
+    
+    public void setDeckFactory(DeckFactory factory) {
+        mDeckFactory = factory;
     }
 
     public void onFlip(View v) {
