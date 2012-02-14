@@ -42,7 +42,7 @@ public class CardActivityTest {
 
         Intent startedIntent = shadowActivity.getNextStartedActivity();
         assertThat(startedIntent, notNullValue());
-        assertThat(startedIntent.getAction(), equalTo(Actions.FREEZE_CARD));
+        assertThat(startedIntent.getAction(), equalTo(Actions.FACEDOWN_CARD));
     }
 
     @Test

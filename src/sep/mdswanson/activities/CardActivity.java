@@ -41,7 +41,7 @@ public class CardActivity extends PlanningPokerActivity {
             
             @Override
             public boolean onLongClick(View arg0) {
-                Intent freezeCardIntent = new Intent().setAction(Actions.FREEZE_CARD);
+                Intent freezeCardIntent = new Intent().setAction(Actions.FACEDOWN_CARD);
                 freezeCardIntent.putExtra(IntentKeys.CARD_VALUE, getCurrentCardValue());
                 startActivity(freezeCardIntent);
                 
