@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/facedown_container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/texture_repeating"
+    android:onClick="onFacedownCardClicked"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -12,10 +14,10 @@
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
         android:layout_marginTop="40dip"
-        android:background="@drawable/facedown_card" >
+        android:background="@drawable/rounded_corner" >
 
         <RelativeLayout
-            android:id="@+id/facedown_container"
+            android:id="@+id/background_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dip"
@@ -23,13 +25,21 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/tap_to_reveal"
+                android:id="@+id/tap_to_reveal_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Tap to reveal" 
-                android:textSize="40dip"
-                android:textColor="#4D4D4D"/>
+                android:text="@string/tap_to_reveal"
+                android:textColor="#4D4D4D"
+                android:textSize="40dip" />
+
+            <TextView
+                android:id="@+id/estimate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/card_number"
+                android:textSize="140dip" />
         </RelativeLayout>
     </LinearLayout>
 
