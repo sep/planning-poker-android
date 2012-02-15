@@ -43,7 +43,9 @@ public class CardActivity extends PlanningPokerActivity {
             public boolean onLongClick(View arg0) {
                 Intent freezeCardIntent = new Intent().setAction(Actions.FACEDOWN_CARD);
                 freezeCardIntent.putExtra(IntentKeys.CARD_VALUE, getCurrentCardValue());
+                
                 startActivity(freezeCardIntent);
+                overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out);
                 
                 return true;
             }
@@ -62,6 +64,12 @@ public class CardActivity extends PlanningPokerActivity {
         setDisplayItem();
     }
     
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out);
+    }
+    
     private Deck getCurrentDeck() {
         return mDeckFactory.getDeck();
     }
@@ -72,6 +80,7 @@ public class CardActivity extends PlanningPokerActivity {
 
     public void onFlip(View v) {
         startActivity(new Intent().setAction(Actions.INSTRUCTIONS));
+        overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out);
     }
 
     public void onUpArrowClicked(View v) {

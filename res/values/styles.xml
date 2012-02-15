@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextureBgTheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@drawable/texture_repeating</item>
+    </style>
+
+</resources>

@@ -16,6 +16,7 @@ public class MainActivity extends PlanningPokerActivity {
 
     public void onFlip(View v) {
         startActivity(new Intent().setAction(Actions.CARD));
+        overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out);
     }
 
 }

@@ -24,6 +24,12 @@ public class FacedownActivity extends PlanningPokerActivity {
         mEstimateDisplay = (TextView) findViewById(R.id.estimate_text);
         mBackgroundContainer = (View) findViewById(R.id.background_container);
     }
+    
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0, 0);
+    }
 
     public boolean onFacedownCardClicked(View v) {
         mEstimateDisplay.setText(mCardValue);
