@@ -34,6 +34,13 @@ public class MainActivity extends PlanningPokerActivity {
 
         mFlipper = (ViewFlipper) findViewById(R.id.flipper);
         mFlipper.setOnTouchListener(null);
+        mFlipper.setOnClickListener(null);
+        
+        View instructionView = getLayoutInflater().inflate(R.layout.instructions, null);
+        View estimateView = getLayoutInflater().inflate(R.layout.estimate, null);
+        
+        mFlipper.addView(instructionView);
+        mFlipper.addView(estimateView);
 
         mDeckFactory = new DeckFactory(this);
 
@@ -57,9 +64,15 @@ public class MainActivity extends PlanningPokerActivity {
         updateArrowVisibility();
         setDisplayItem();
     }
+    
+    public void onDealMeIn(View v) {
+        if (mFlipper.indexOfChild(mFlipper.getCurrentView()) != 0) return;
+        onFlip(v);
+    }
 
-    public void onFlip(View v) {
+    public boolean onFlip(View v) {
         AnimationFactory.flipTransition(mFlipper, FlipDirection.LEFT_RIGHT);
+        return true;
     }
 
     private Deck getCurrentDeck() {
