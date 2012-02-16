@@ -5,7 +5,10 @@ import sep.mdswanson.application.Actions;
 import sep.mdswanson.models.decks.Deck;
 import sep.mdswanson.models.decks.DeckFactory;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,6 +34,9 @@ public class CardActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
+        
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/DejaVuSansCondensedBold.ttf");
+        mEstimateTextView.setTypeface(typeFace);
     }
 
     @Override
@@ -94,7 +100,8 @@ public class CardActivity extends PlanningPokerActivity {
     }
 
     private void setDisplayItem() {
-        mEstimateTextView.setText(getCurrentCardValue());
+        Log.d("NDS", getCurrentCardValue());
+        mEstimateTextView.setText(Html.fromHtml(getCurrentCardValue()).toString());
     }
     
     public String getCurrentCardValue() {

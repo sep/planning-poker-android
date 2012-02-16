@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:textSize="140dip"
+                    android:textSize="130dip"
                     android:textColor="@color/card_number"
                     android:typeface="monospace" />
 
