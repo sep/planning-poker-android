@@ -1,7 +1,8 @@
-package sep.mdswanson.activities;
+package com.sep.planningpoker.activities;
 
-import sep.mdswanson.R;
-import sep.mdswanson.application.Actions;
+import com.sep.planningpoker.application.Actions;
+
+import com.sep.planningpoker.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;

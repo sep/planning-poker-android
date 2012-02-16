@@ -1,6 +1,6 @@
-package sep.mdswanson.models.decks;
+package com.sep.planningpoker.models.decks;
 
-import sep.mdswanson.R;
+import com.sep.planningpoker.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;

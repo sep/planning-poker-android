@@ -1,4 +1,4 @@
-package sep.mdswanson.application;
+package com.sep.planningpoker.application;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,6 +1,6 @@
-package sep.mdswanson.activities;
+package com.sep.planningpoker.activities;
 
-import sep.mdswanson.R;
+import com.sep.planningpoker.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

@@ -1,4 +1,4 @@
-package sep.mdswanson.models.decks;
+package com.sep.planningpoker.models.decks;
 
 public class Deck {
 

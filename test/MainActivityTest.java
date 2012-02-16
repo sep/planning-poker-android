@@ -2,6 +2,8 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.sep.planningpoker.activities.MainActivity;
+import com.sep.planningpoker.application.Actions;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowActivity;
 import com.xtremelabs.robolectric.shadows.ShadowIntent;
@@ -10,9 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import sep.mdswanson.R;
-import sep.mdswanson.activities.MainActivity;
-import sep.mdswanson.application.Actions;
+import com.sep.planningpoker.R;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

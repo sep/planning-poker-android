@@ -1,11 +1,11 @@
-package sep.mdswanson.activities;
+package com.sep.planningpoker.activities;
 
+import com.sep.planningpoker.models.decks.Deck;
+import com.sep.planningpoker.models.decks.DeckFactory;
 import com.tekle.oss.android.animation.AnimationFactory;
 import com.tekle.oss.android.animation.AnimationFactory.FlipDirection;
 
-import sep.mdswanson.R;
-import sep.mdswanson.models.decks.Deck;
-import sep.mdswanson.models.decks.DeckFactory;
+import com.sep.planningpoker.R;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
