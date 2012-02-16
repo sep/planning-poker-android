@@ -2,13 +2,11 @@ package sep.mdswanson.activities;
 
 import sep.mdswanson.R;
 import sep.mdswanson.application.Actions;
-import sep.mdswanson.application.IntentKeys;
 import sep.mdswanson.models.decks.Deck;
 import sep.mdswanson.models.decks.DeckFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
 public class CardActivity extends PlanningPokerActivity {
@@ -20,8 +18,6 @@ public class CardActivity extends PlanningPokerActivity {
     private TextView mEstimateTextView;
 
     private int mCardPosition = 0;
-    private View mDigitsContainer;
-
     private DeckFactory mDeckFactory;
 
     @Override
@@ -35,21 +31,6 @@ public class CardActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
-        
-        mDigitsContainer = (View) findViewById(R.id.digit_container);
-        mDigitsContainer.setOnLongClickListener(new OnLongClickListener() {
-            
-            @Override
-            public boolean onLongClick(View arg0) {
-                Intent freezeCardIntent = new Intent().setAction(Actions.FACEDOWN_CARD);
-                freezeCardIntent.putExtra(IntentKeys.CARD_VALUE, getCurrentCardValue());
-                
-                startActivity(freezeCardIntent);
-                overridePendingTransition(R.anim.rotate_in, R.anim.rotate_out);
-                
-                return true;
-            }
-        });
     }
 
     @Override
