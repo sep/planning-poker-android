@@ -27,6 +27,9 @@ public class MainActivity extends PlanningPokerActivity {
     private int mCardPosition = 0;
     private DeckFactory mDeckFactory;
 
+    private int INSTRUCTION_VIEW = 0;
+    private int ESTIMATE_VIEW = 1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +38,13 @@ public class MainActivity extends PlanningPokerActivity {
         mFlipper = (ViewFlipper) findViewById(R.id.flipper);
         mFlipper.setOnTouchListener(null);
         mFlipper.setOnClickListener(null);
-        
+
         View instructionView = getLayoutInflater().inflate(R.layout.instructions, null);
+        instructionView.setId(INSTRUCTION_VIEW);
+
         View estimateView = getLayoutInflater().inflate(R.layout.estimate, null);
-        
+        estimateView.setId(ESTIMATE_VIEW);
+
         mFlipper.addView(instructionView);
         mFlipper.addView(estimateView);
 
@@ -64,15 +70,30 @@ public class MainActivity extends PlanningPokerActivity {
         updateArrowVisibility();
         setDisplayItem();
     }
-    
-    public void onDealMeIn(View v) {
-        if (mFlipper.indexOfChild(mFlipper.getCurrentView()) != 0) return;
-        onFlip(v);
+
+    @Override
+    public void onBackPressed() {
+        if (estimateViewIsShowing()) {
+            flipCardOver();
+            return;
+        }
+
+        super.onBackPressed();
     }
 
-    public boolean onFlip(View v) {
+    public void onDealMeIn(View v) {
+        if (estimateViewIsShowing())
+            return;
+
+        flipCardOver();
+    }
+
+    private boolean estimateViewIsShowing() {
+        return mFlipper.getCurrentView().getId() == ESTIMATE_VIEW;
+    }
+
+    private void flipCardOver() {
         AnimationFactory.flipTransition(mFlipper, FlipDirection.LEFT_RIGHT);
-        return true;
     }
 
     private Deck getCurrentDeck() {

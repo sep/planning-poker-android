@@ -32,14 +32,6 @@
                     android:layout_marginLeft="5dip"
                     android:layout_marginTop="5dip"
                     android:src="@drawable/card_logo" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:onClick="onFlip"
-                    android:src="@drawable/flip_arrow" 
-                    android:padding="5dip"/>
             </RelativeLayout>
 
             <RelativeLayout
