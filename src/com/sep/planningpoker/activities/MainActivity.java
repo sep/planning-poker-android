@@ -6,7 +6,6 @@ import com.tekle.oss.android.animation.AnimationFactory;
 import com.tekle.oss.android.animation.AnimationFactory.FlipDirection;
 
 import com.sep.planningpoker.R;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -54,9 +53,6 @@ public class MainActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
-
-        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/DejaVuSansCondensedBold.ttf");
-        mEstimateTextView.setTypeface(typeFace);
     }
 
     @Override
@@ -81,7 +77,7 @@ public class MainActivity extends PlanningPokerActivity {
         super.onBackPressed();
     }
 
-    public void onDealMeIn(View v) {
+    public void onCardTapped(View v) {
         if (estimateViewIsShowing())
             return;
 

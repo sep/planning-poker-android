@@ -50,7 +50,7 @@
                     android:onClick="onUpArrowClicked"
                     android:src="@drawable/up_arrow" />
 
-                <TextView
+                <com.sep.planningpoker.customcontrols.CustomFontTextView
                     android:id="@+id/estimate_display"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
