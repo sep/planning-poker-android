@@ -9,8 +9,10 @@ import com.sep.planningpoker.R;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends PlanningPokerActivity {
@@ -53,6 +55,10 @@ public class MainActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
+        
+        Toast tapToStart = Toast.makeText(this, getResources().getString(R.string.tap_to_start), Toast.LENGTH_LONG);
+        tapToStart.setGravity(Gravity.BOTTOM, 0, 0);
+        tapToStart.show();
     }
 
     @Override

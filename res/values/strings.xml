@@ -7,7 +7,7 @@
     <string name="step_two">Everybody picks an estimate card</string>
     <string name="step_three">Reveal the cards, low and high talk it out</string>
     <string name="step_four">Revote until consensus, move to next story</string>
-    <string name="deal_me_in_button">Deal me in!</string>
+    <string name="tap_to_start">Tap anywhere on the card to play!</string>
     <string name="settings">Settings</string>
     <string name="sequence_settings">Card Sequence</string>
     <string name="sequence_settings_summary">Change the sequence of the cards in the deck</string>
