@@ -2,11 +2,11 @@
 <resources>
 
     <string name="app_name">Planning Poker</string>
-    <string name="planning_poker_title">PLANNING POKER</string>
+    <string name="planning_poker_title">HOW TO PLAY</string>
     <string name="step_one">Pick a story or feature</string>
-    <string name="step_two">Everyone picks an estimate card</string>
-    <string name="step_three">Reveal cards - low/high explain</string>
-    <string name="step_four">Repeat until consensus</string>
+    <string name="step_two">Everybody picks an estimate card</string>
+    <string name="step_three">Reveal the cards, low and high talk it out</string>
+    <string name="step_four">Revote until consensus, move to next story</string>
     <string name="deal_me_in_button">Deal me in!</string>
     <string name="settings">Settings</string>
     <string name="sequence_settings">Card Sequence</string>

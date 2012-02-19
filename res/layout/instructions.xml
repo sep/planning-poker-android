@@ -52,8 +52,8 @@
                         android:gravity="center"
                         android:paddingBottom="10dip"
                         android:paddingTop="5dip"
-                        android:text="HOW TO PLAY"
-                        android:textColor="@color/instruction_steps"
+                        android:text="@string/planning_poker_title"
+                        android:textColor="@color/dark_green"
                         android:textSize="24dip" />
 
                     <LinearLayout
@@ -77,16 +77,16 @@
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:gravity="center_horizontal|top"
-                                android:text="Pick a story or feature"
-                                android:textColor="@color/instruction_steps" />
+                                android:text="@string/step_one"
+                                android:textColor="@color/dark_purple" />
 
                             <com.sep.planningpoker.customcontrols.CustomFontTextView
                                 android:layout_width="0dip"
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:gravity="center_horizontal|top"
-                                android:text="Everybody picks an estimate card"
-                                android:textColor="@color/instruction_steps" />
+                                android:text="@string/step_two"
+                                android:textColor="@color/dark_purple" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -112,16 +112,16 @@
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:gravity="center_horizontal|top"
-                                android:text="Revote until consensus, move to next story"
-                                android:textColor="@color/instruction_steps" />
+                                android:text="@string/step_three"
+                                android:textColor="@color/dark_purple" />
 
                             <com.sep.planningpoker.customcontrols.CustomFontTextView
                                 android:layout_width="0dip"
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:gravity="center_horizontal|top"
-                                android:text="Reveal the cards, low and high talk it out"
-                                android:textColor="@color/instruction_steps" />
+                                android:text="@string/step_four"
+                                android:textColor="@color/dark_purple" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
