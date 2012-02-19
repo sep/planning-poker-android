@@ -25,6 +25,9 @@ public class MainActivity extends PlanningPokerActivity {
     private View mDownArrowView;
     private TextView mEstimateTextView;
 
+    private View mUpArrow;
+    private View mDownArrow;
+
     private int mCardPosition = 0;
     private DeckFactory mDeckFactory;
 
@@ -44,6 +47,8 @@ public class MainActivity extends PlanningPokerActivity {
         instructionView.setId(INSTRUCTION_VIEW);
 
         View estimateView = getLayoutInflater().inflate(R.layout.estimate, null);
+        mUpArrow = estimateView.findViewById(R.id.up_arrow);
+        mDownArrow = estimateView.findViewById(R.id.down_arrow);
         estimateView.setId(ESTIMATE_VIEW);
 
         mFlipper.addView(instructionView);
@@ -55,7 +60,7 @@ public class MainActivity extends PlanningPokerActivity {
         mDownArrowView = findViewById(R.id.down_arrow);
 
         mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
-        
+
         Toast tapToStart = Toast.makeText(this, getResources().getString(R.string.tap_to_start), Toast.LENGTH_LONG);
         tapToStart.setGravity(Gravity.BOTTOM, 0, 0);
         tapToStart.show();
@@ -96,6 +101,14 @@ public class MainActivity extends PlanningPokerActivity {
 
     private void flipCardOver() {
         AnimationFactory.flipTransition(mFlipper, FlipDirection.LEFT_RIGHT);
+        
+        if (estimateViewIsShowing()) {
+            mUpArrow.setClickable(true);
+            mDownArrow.setClickable(true);
+        } else {
+            mUpArrow.setClickable(false);
+            mDownArrow.setClickable(false);
+        }
     }
 
     private Deck getCurrentDeck() {

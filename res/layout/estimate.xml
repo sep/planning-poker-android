@@ -17,12 +17,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_gravity="top"
-                android:layout_weight="10"
-                android:onClick="onUpArrowClicked"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <ImageView
@@ -32,7 +29,7 @@
                     android:layout_marginLeft="5dip"
                     android:layout_marginTop="5dip"
                     android:src="@drawable/card_logo" />
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/digit_container"
@@ -46,8 +43,10 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:clickable="false"
                     android:gravity="top"
                     android:onClick="onUpArrowClicked"
+                    android:padding="40dip"
                     android:src="@drawable/up_arrow" />
 
                 <com.sep.planningpoker.customcontrols.CustomFontTextView
@@ -65,27 +64,28 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/up_arrow"
                     android:layout_alignParentBottom="true"
+                    android:clickable="false"
                     android:gravity="bottom"
                     android:onClick="onDownArrowClicked"
+                    android:padding="40dip"
                     android:src="@drawable/down_arrow" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="10"
-                android:onClick="onDownArrowClicked"
-                android:orientation="horizontal" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
                     android:layout_marginBottom="5dip"
                     android:layout_marginRight="5dip"
                     android:src="@drawable/card_logo" />
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
