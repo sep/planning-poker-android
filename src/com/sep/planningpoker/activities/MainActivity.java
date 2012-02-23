@@ -80,7 +80,7 @@ public class MainActivity extends PlanningPokerActivity {
 
     @Override
     public void onBackPressed() {
-        if (estimateViewIsShowing()) {
+        if (isEstimateViewIsShowing()) {
             flipCardOver();
             return;
         }
@@ -89,20 +89,20 @@ public class MainActivity extends PlanningPokerActivity {
     }
 
     public void onCardTapped(View v) {
-        if (estimateViewIsShowing())
+        if (isEstimateViewIsShowing())
             return;
 
         flipCardOver();
     }
 
-    private boolean estimateViewIsShowing() {
+    public boolean isEstimateViewIsShowing() {
         return mFlipper.getCurrentView().getId() == ESTIMATE_VIEW;
     }
 
     private void flipCardOver() {
         AnimationFactory.flipTransition(mFlipper, FlipDirection.LEFT_RIGHT);
         
-        if (estimateViewIsShowing()) {
+        if (isEstimateViewIsShowing()) {
             mUpArrow.setClickable(true);
             mDownArrow.setClickable(true);
         } else {

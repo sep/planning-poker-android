@@ -1,42 +1,48 @@
-import android.content.Intent;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import com.sep.planningpoker.activities.MainActivity;
-import com.sep.planningpoker.application.Actions;
+import com.sep.planningpoker.application.ApplicationPreferences;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowActivity;
-import com.xtremelabs.robolectric.shadows.ShadowIntent;
+import com.xtremelabs.robolectric.shadows.ShadowViewFlipper;
+import com.xtremelabs.robolectric.shadows.ShadowViewGroup;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 
 import com.sep.planningpoker.R;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
 
     private MainActivity activity;
-    private Button dealMeInButton;
-    private ImageView flipArrow;
+    private ApplicationPreferences mockPreferences;
 
     @Before
     public void setUp() throws Exception {
         activity = new MainActivity();
-        activity.onCreate(null);
 
-        dealMeInButton = (Button) activity.findViewById(R.id.deal_me_in);
-        flipArrow = (ImageView) activity.findViewById(R.id.flip_arrow);
+        mockPreferences = Mockito.mock(ApplicationPreferences.class);
+        activity.setAppPreferences(mockPreferences);
     }
 
     @Test
-    public void shouldPass() {
+    public void shouldDisplayInstructionScreenIfThisIsTheFirstTimeILaunchTheApp() {
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(false);
         
+        activity.onCreate(null);
+        activity.onResume();
+        
+        ViewFlipper flipper = (ViewFlipper) activity.findViewById(R.id.flipper);
+        ShadowViewGroup sflipper = shadowOf(flipper);
+        
+        assertTrue(false);
     }
-    
 }

@@ -1,4 +1,4 @@
-package com.sep.planningpoker.application;
+package com.sep.planningpoker.application.preferences;
 
 import android.app.Application;
 import android.content.Context;
