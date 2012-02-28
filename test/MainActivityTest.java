@@ -4,6 +4,7 @@ import com.sep.planningpoker.activities.MainActivity;
 import com.sep.planningpoker.application.ApplicationPreferences;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowActivity;
+import com.xtremelabs.robolectric.shadows.ShadowViewAnimator;
 import com.xtremelabs.robolectric.shadows.ShadowViewFlipper;
 import com.xtremelabs.robolectric.shadows.ShadowViewGroup;
 
@@ -35,14 +36,32 @@ public class MainActivityTest {
 
     @Test
     public void shouldDisplayInstructionScreenIfThisIsTheFirstTimeILaunchTheApp() {
-        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(false);
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(true);
         
         activity.onCreate(null);
         activity.onResume();
         
-        ViewFlipper flipper = (ViewFlipper) activity.findViewById(R.id.flipper);
-        ShadowViewGroup sflipper = shadowOf(flipper);
+        assertFalse(activity.isEstimateViewIsShowing());
+    }
+    
+    @Test
+    public void shouldDisplayCardScreenIfITapTheCard() {
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(true);
         
-        assertTrue(false);
+        activity.onCreate(null);
+        activity.onResume();
+        activity.onCardTapped(null);
+
+        assertTrue(activity.isEstimateViewIsShowing());
+    }
+    
+    @Test
+    public void shouldDisplayCardScreenIfThisIsNotTheFirstTimeILaunchTheApp() {
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(false);
+        
+        activity.onCreate(null);
+        activity.onResume();
+
+        assertTrue(activity.isEstimateViewIsShowing());
     }
 }
