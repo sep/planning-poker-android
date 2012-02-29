@@ -39,6 +39,31 @@ public class MainActivity extends PlanningPokerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        configureViewFlipper();
+
+        mDeckFactory = new DeckFactory(this);
+
+        mUpArrowView = findViewById(R.id.up_arrow);
+        mDownArrowView = findViewById(R.id.down_arrow);
+
+        mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
+
+        getAppPreferences().setIsFirstTimeLaunched(false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mCurrentDeck = getCurrentDeck();
+
+        mCardPosition = mCurrentDeck.getStartingCardIndex();
+
+        updateArrowVisibility();
+        setDisplayItem();
+    }
+
+    private void configureViewFlipper() {
         mFlipper = (ViewFlipper) findViewById(R.id.flipper);
         mFlipper.setOnTouchListener(null);
         mFlipper.setOnClickListener(null);
@@ -54,28 +79,18 @@ public class MainActivity extends PlanningPokerActivity {
         mFlipper.addView(instructionView);
         mFlipper.addView(estimateView);
 
-        mDeckFactory = new DeckFactory(this);
+        if (getAppPreferences().getIsFirstTimeLaunched()) {
+            mFlipper.setDisplayedChild(0);
+            showInstructionalToast();
+        } else {
+            mFlipper.setDisplayedChild(1);
+        }
+    }
 
-        mUpArrowView = findViewById(R.id.up_arrow);
-        mDownArrowView = findViewById(R.id.down_arrow);
-
-        mEstimateTextView = (TextView) findViewById(R.id.estimate_display);
-
+    private void showInstructionalToast() {
         Toast tapToStart = Toast.makeText(this, getResources().getString(R.string.tap_to_start), Toast.LENGTH_LONG);
         tapToStart.setGravity(Gravity.BOTTOM, 0, 0);
         tapToStart.show();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        mCurrentDeck = getCurrentDeck();
-
-        mCardPosition = mCurrentDeck.getStartingCardIndex();
-
-        updateArrowVisibility();
-        setDisplayItem();
     }
 
     @Override
@@ -101,7 +116,7 @@ public class MainActivity extends PlanningPokerActivity {
 
     private void flipCardOver() {
         AnimationFactory.flipTransition(mFlipper, FlipDirection.LEFT_RIGHT);
-        
+
         if (isEstimateViewIsShowing()) {
             mUpArrow.setClickable(true);
             mDownArrow.setClickable(true);

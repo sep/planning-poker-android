@@ -1,24 +1,19 @@
-import android.widget.ViewFlipper;
+package com.sep.planningpoker.test;
+import com.sep.planningpoker.R;
 
 import com.sep.planningpoker.activities.MainActivity;
 import com.sep.planningpoker.application.ApplicationPreferences;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
-import com.xtremelabs.robolectric.shadows.ShadowActivity;
-import com.xtremelabs.robolectric.shadows.ShadowViewAnimator;
-import com.xtremelabs.robolectric.shadows.ShadowViewFlipper;
-import com.xtremelabs.robolectric.shadows.ShadowViewGroup;
+import com.xtremelabs.robolectric.shadows.ShadowToast;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
-import com.sep.planningpoker.R;
-
-import static org.hamcrest.CoreMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import static org.hamcrest.CoreMatchers.*;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
@@ -45,6 +40,16 @@ public class MainActivityTest {
     }
     
     @Test
+    public void shouldDisplayCardScreenIfThisIsNotTheFirstTimeILaunchTheApp() {
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(false);
+        
+        activity.onCreate(null);
+        activity.onResume();
+
+        assertTrue(activity.isEstimateViewIsShowing());
+    }
+    
+    @Test
     public void shouldDisplayCardScreenIfITapTheCard() {
         when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(true);
         
@@ -56,12 +61,23 @@ public class MainActivityTest {
     }
     
     @Test
-    public void shouldDisplayCardScreenIfThisIsNotTheFirstTimeILaunchTheApp() {
+    public void shouldDisplayToastIfThisIsTheFirstTimeILaunchTheApp() {
+        when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(true);
+        
+        activity.onCreate(null);
+        activity.onResume();
+        
+        String tapToStartToastText = activity.getResources().getString(R.string.tap_to_start);
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo(tapToStartToastText));
+    }
+    
+    @Test
+    public void shouldNotDisplayToastIfThisINotsTheFirstTimeILaunchTheApp() {
         when(mockPreferences.getIsFirstTimeLaunched()).thenReturn(false);
         
         activity.onCreate(null);
         activity.onResume();
-
-        assertTrue(activity.isEstimateViewIsShowing());
+        
+        assertNull(ShadowToast.getLatestToast());
     }
 }
